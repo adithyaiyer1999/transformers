@@ -573,7 +573,7 @@ def main():
     if model_args.spmd_defer_init:
         model = model.to(dtype=getattr(torch, model_args.torch_dtype))
     else:
-        model = model.to(xm.xla_device(), dtype=getattr(torch, model_args.torch_dtype))
+        model = model.to(xm.xla_device(), dtype=torch.bfloat16)#(torch, model_args.torch_dtype))
 
     # Shard each parameter in the model based on the sharding strategy provided.
     for name, param in model.named_parameters():
