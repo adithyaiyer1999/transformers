@@ -301,7 +301,7 @@ class HfArgumentParser(ArgumentParser):
 
         if args_file_flag or args_filename or (look_for_args_file and len(sys.argv)):
             args_files = []
-
+            print("sys.argv : ", sys.argv)
             if args_filename:
                 args_files.append(Path(args_filename))
             elif look_for_args_file and len(sys.argv):
