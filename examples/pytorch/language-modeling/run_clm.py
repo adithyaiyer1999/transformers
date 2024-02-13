@@ -318,6 +318,9 @@ def main():
         # If we pass only one argument to the script and it's the path to a json file,
         # let's parse it to get our arguments.
         model_args, data_args, training_args = parser.parse_json_file(json_file=os.path.abspath(sys.argv[1]))
+        print("training_args", training_args)
+        print("model_args", model_args)
+        print("data_args", data_args)
     else:
         model_args, data_args, training_args = parser.parse_args_into_dataclasses()
 
