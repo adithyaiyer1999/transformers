@@ -1728,7 +1728,7 @@ class Trainer:
         logger.info(f"  Gradient Accumulation steps = {args.gradient_accumulation_steps}")
         logger.info(f"  Total optimization steps = {max_steps:,}")
         logger.info(f"  Number of trainable parameters = {get_model_param_count(model, trainable_only=True):,}")
-        logger.info(f"Lets hope this gets printed adithya")
+        logger.info("Lets hope this gets printed adithya")
         self.state.epoch = 0
         start_time = time.time()
         epochs_trained = 0
