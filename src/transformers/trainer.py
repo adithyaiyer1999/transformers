@@ -1759,6 +1759,7 @@ class Trainer:
 
         total_batched_samples = 0
         for epoch in range(epochs_trained, num_train_epochs):
+            logger.info("adithya editing file check 2")
             epoch_iterator = train_dataloader
             if hasattr(epoch_iterator, "set_epoch"):
                 epoch_iterator.set_epoch(epoch)
@@ -1772,11 +1773,12 @@ class Trainer:
                 if len_dataloader is not None
                 else args.max_steps * args.gradient_accumulation_steps
             )
+            logger.info("adithya editing file check 3")
             self.control = self.callback_handler.on_epoch_begin(args, self.state, self.control)
 
             if epoch == epochs_trained and resume_from_checkpoint is not None and steps_trained_in_current_epoch == 0:
                 self._load_rng_state(resume_from_checkpoint)
-
+            logger.info("adithya editing file check 4")
             rng_to_sync = False
             steps_skipped = 0
             if steps_trained_in_current_epoch > 0:
@@ -1784,7 +1786,7 @@ class Trainer:
                 steps_skipped = steps_trained_in_current_epoch
                 steps_trained_in_current_epoch = 0
                 rng_to_sync = True
-
+            logger.info("adithya editing file check 5")
             step = -1
             for step, inputs in enumerate(epoch_iterator):
                 print("step adithya :", step)
