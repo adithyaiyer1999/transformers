@@ -32,7 +32,7 @@ import sys
 import time
 import warnings
 import torch_xla.debug.profiler as xp
-from torch_xla.distributed_checkpoint import CheckpointManager
+from torch_xla.experimental.distributed_checkpoint import CheckpointManager
 from collections.abc import Mapping
 from pathlib import Path
 from threading import Thread
