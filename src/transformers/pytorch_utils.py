@@ -39,7 +39,7 @@ is_torch_1_8_0 = parsed_torch_version_base == version.parse("1.8.0")
 def softmax_backward_data(parent, grad_output, output, dim, self):
     """
     A function that calls the internal `_softmax_backward_data` PyTorch method and that adjusts the arguments according
-    to the torch version detected.
+    to the torch ver`sion detected.
     """
 
     from torch import _softmax_backward_data
