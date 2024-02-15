@@ -1787,6 +1787,7 @@ class Trainer:
 
             step = -1
             for step, inputs in enumerate(epoch_iterator):
+                print("step adithya :", step)
                 total_batched_samples += 1
                 if rng_to_sync:
                     self._load_rng_state(resume_from_checkpoint)
@@ -1803,13 +1804,13 @@ class Trainer:
                 elif steps_trained_progress_bar is not None:
                     steps_trained_progress_bar.close()
                     steps_trained_progress_bar = None
-
+                print("step adithya :", 2)
                 if step % args.gradient_accumulation_steps == 0:
                     self.control = self.callback_handler.on_step_begin(args, self.state, self.control)
-
+                print("step adithya :", 3)
                 with self.accelerator.accumulate(model):
                     tr_loss_step = self.training_step(model, inputs)
-
+                print("step adithya :", 4)
                 if (
                     args.logging_nan_inf_filter
                     and not is_torch_tpu_available()
@@ -1819,9 +1820,9 @@ class Trainer:
                     tr_loss += tr_loss / (1 + self.state.global_step - self._globalstep_last_logged)
                 else:
                     tr_loss += tr_loss_step
-
+                print("step adithya :", 4)
                 self.current_flos += float(self.floating_point_ops(inputs))
-
+                print("step adithya :", 4)
                 is_last_step_and_steps_less_than_grad_acc = (
                     steps_in_epoch <= args.gradient_accumulation_steps and (step + 1) == steps_in_epoch
                 )
@@ -1889,10 +1890,10 @@ class Trainer:
                     f" num_steps ({max_steps}) higher than the number of available samples."
                 )
                 self.control.should_training_stop = True
-
+            print("step adithya :", 4)
             self.control = self.callback_handler.on_epoch_end(args, self.state, self.control)
             self._maybe_log_save_evaluate(tr_loss, model, trial, epoch, ignore_keys_for_eval)
-
+            print("step adithya :", 4)
             if DebugOption.TPU_METRICS_DEBUG in self.args.debug:
                 if is_torch_tpu_available():
                     # tpu-comment: Logging debug metrics for PyTorch/XLA (compile, execute times, ops, etc.)
