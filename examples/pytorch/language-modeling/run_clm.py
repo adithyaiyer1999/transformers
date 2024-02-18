@@ -519,7 +519,6 @@ def main():
     # replicated along the DCN axis, and inputs and activations should have
     # the batch dimension sharded along the combined DCN and data axes.
     num_devices = xr.global_runtime_device_count()
-    print("Adithya: num_devices", num_devices)
     model_axis = max(model_args.spmd_2d_sharding, 1)
     dcn_axis = model_args.spmd_dcn_parallelism
     data_axis = num_devices // model_axis // dcn_axis
