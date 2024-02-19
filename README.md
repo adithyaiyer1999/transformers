@@ -83,7 +83,7 @@ python examples/pytorch/language-modeling/run_clm.py \
  --output_dir /tmp/output \
  --overwrite_output_dir \
  --config_name "meta-llama/Llama-2-13b-hf" \
- --token "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" \
+ --token "add your hf token" \
  --save_strategy no \
  --logging_strategy no \
  --remove_unused_columns no \
@@ -99,7 +99,7 @@ python examples/pytorch/language-modeling/run_clm.py \
 ```
 
 Some parameters to keep in mind : 
-
+0. Replace with your HF token with llama2 access
 1. `dataset_name` and `dataset_config_name` can be modified based on which data you want to train on
 2. VERY IMP : `per_device_train_batch_size` argument actually refers to the *GLOBAL BATCH SIZE*, and not local per device. This seems to be a bug in HF training [Link](https://github.com/huggingface/transformers/issues/21444). 
 3. Replace `config_name` with the model of your liking
